@@ -1,0 +1,53 @@
+# application.yml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/usertemplate
+    username: karthik
+    password: karthikr1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 307138740566-qp411pemd87ajb2ptmt7tjh2j0cimfgs.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+        provider:
+          google:
+            user-name-attribute: email
+
+  mail:
+    host: smtp.gmail.com # or your SMTP server
+    port: 587
+    username: catchtokarthi1@gmail.com
+    password: dplgdnwrdkwqmdzw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+app:
+  jwt:
+    secret: wTfComDRmHoAqhQiSFEgVPF1gNbpRvOsuAuevcXQGGI=
+    expiration: 86400000
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:AIzaSyDgN82VVDqGJ3Ir3M4DgYzZUp89FOl0hTc}
